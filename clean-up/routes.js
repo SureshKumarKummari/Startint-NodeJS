@@ -18,6 +18,7 @@ function requestHandler(req, res){
             const htmlResponse = '<html><head><title>First-Redirection</title></head><body><form action="/message" method="POST"><p>' + lastLine + '</p><input type="text" name="text"></input><br><button type=submit>Submit</button></form></body></html>';
             res.write(htmlResponse);
             return res.end();
+            
         });
     } else if (url === '/message' && req.method === 'POST') {
         let body = '';
