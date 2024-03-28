@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="localize(e)">
+        <input type="text" name="username">
+        <br><br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+<script>
+    function localize(e){
+          e.preventDefault();
+        let uname = (localStorage.length + 1).toString();
+        let obj = {
+            "username": e.target.username.value
+        };
+        localStorage.setItem(uname, e.target.username.value);
+        const request = new Request('/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        });
+        fetch(request)
+    }
+</script>
+</html>
