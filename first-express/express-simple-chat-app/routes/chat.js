@@ -23,7 +23,7 @@ router.post('/',(req,res,next)=>{
 
 router.use('/',(req,res,next)=>{
     let messge=fs.readFileSync(path.join(__dirname,'..','message.txt'));
-res.send('<html lang="en"><body><p>'+messge+'</p><form action="/chat" method="POST"><input type="text" name="chat"><button type="submit">Send</button></form></body></html>');
+res.send('<html lang="en"><body><p>'+messge+'</p><form action="/" method="POST"><input type="text" name="chat"><button type="submit">Send</button></form></body></html>');
 });
 
 module.exports=router;
