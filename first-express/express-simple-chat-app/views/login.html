@@ -20,7 +20,7 @@
             "username": e.target.username.value
         };
         localStorage.setItem(uname, e.target.username.value);
-        const request = new Request('/chat', {
+        const request = new Request('/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -5,7 +5,7 @@ const router=express.Router();
 
 
 
-router.post('/chat',(req,res,next)=>{
+router.post('/',(req,res,next)=>{
     const { data } = req.body;
     let file1=path.join(__dirname,'..','message.txt');
     fs.appendFile(file1, `${data}\n`, err => {
@@ -17,11 +17,11 @@ router.post('/chat',(req,res,next)=>{
             res.status(200).send('Message written to file successfully');
         }
     });
-    res.redirect('/chat');
+    res.redirect('/');
    
 });
 
-router.use('/chat',(req,res,next)=>{
+router.use('/',(req,res,next)=>{
     let messge=fs.readFileSync(path.join(__dirname,'..','message.txt'));
 res.send('<html lang="en"><body><p>'+messge+'</p><form action="/chat" method="POST"><input type="text" name="chat"><button type="submit">Send</button></form></body></html>');
 });
