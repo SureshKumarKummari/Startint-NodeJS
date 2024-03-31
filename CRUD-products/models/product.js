@@ -26,4 +26,8 @@ module.exports = class Product {
   static findById(id) {
     return db.query(`select * from products where products.id=?`,[id]);
   }
+
+   edit(id){
+    db.query(`update products set products.Title=?,products.price=?,products.description=?,products.imageurl=? where products.id=?`,[this.title,this.price,this.description,this.imageUrl,id]);
+  }
 };
